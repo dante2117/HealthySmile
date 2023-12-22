@@ -1,0 +1,91 @@
+﻿@model DentistryWeb.Models.DateAppointment
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/main-doctor.css">
+    <title>Добавление даты приёма</title>
+</head>
+<body>
+    <header>
+        <ul>
+
+            <li><ion-icon name="pin"></ion-icon><a href="">г. Москва, ул. Родниковая, д.7</a></li>
+            <li><ion-icon name="time"></ion-icon><a href="">Часы работы: 09:00-21:00</a></li>
+            <li><ion-icon name="call"></ion-icon><a href="">Телефон: +7 (495) 885-80-80</a></li>
+            <li><ion-icon name="search"></ion-icon><a href="">Поиск:</a></li>
+        </ul>
+    </header>
+
+    <nav>
+        <div class="logo-container">
+            <img src="~/image/logo.png" alt="logo" width="80" height="80">
+        </div>
+        <ul>
+            <li><a href="@Url.Action("AdminService")">Услуги</a></li>
+            <li><a href="@Url.Action("AdminDateAppointment")">Даты приёма</a></li>
+        </ul>
+        <div class="exit">
+            <a href="@Url.Action("Auth")">Выход</a>
+        </div>
+    </nav>
+
+    <div class="history">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Время</th>
+                    <th>Сохранить</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <form method="post" action="@Url.Action("AddDateAppointment", "Home")">
+
+                    <td>
+                        <input asp-for="Date" type="date" />
+                    </td>
+
+                    
+                    <td>
+                        <input asp-for="Time" type="time" />
+                   </td>
+                    
+                    <td>
+                        <button>Сохранить</button>
+                    </td>
+                    <input type="hidden" name="Free" value="True" />
+                    </form>
+
+
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+    @if (ViewBag.Result == "Success")
+    {
+
+
+        <p> Дата успешно добавлена</p>
+
+
+
+    }
+   
+
+
+    
+
+
+    <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+</body>
+</html>

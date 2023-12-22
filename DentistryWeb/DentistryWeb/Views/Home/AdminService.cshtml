@@ -1,0 +1,82 @@
+﻿@model IEnumerable<DentistryWeb.Models.Service>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/main-doctor.css">
+    <title>Главная страница</title>
+</head>
+<body>
+    <header>
+        <ul>
+
+            <li><ion-icon name="pin"></ion-icon><a href="">г. Москва, ул. Родниковая, д.7</a></li>
+            <li><ion-icon name="time"></ion-icon><a href="">Часы работы: 09:00-21:00</a></li>
+            <li><ion-icon name="call"></ion-icon><a href="">Телефон: +7 (495) 885-80-80</a></li>
+            <li><ion-icon name="search"></ion-icon><a href="">Поиск:</a></li>
+        </ul>
+    </header>
+
+    <nav>
+        <div class="logo-container">
+            <img src="~/image/logo.png" alt="logo" width="80" height="80">
+        </div>
+        <ul>
+            <li><a href="@Url.Action("AdminService")">Услуги</a></li>
+            <li><a href="@Url.Action("AdminDateAppointment")">Даты приёма</a></li>
+        </ul>
+        <div class="exit">
+            <a href="@Url.Action("Auth")">Выход</a>
+        </div>
+    </nav>
+   
+    <div class="history">
+        <table>
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Цена</th>
+                    <th>Изменить</th>
+                    <th>Удалить</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in Model)
+                {
+                     <tr>
+                            <td>@r.NameService</td>
+                            <td>@r.PriceService р</td>
+
+                        <td>
+                            <a asp-action="UpdateService" asp-route-id="@r.IdService">
+                                <button>Изменить</button>
+                            </a>
+                        </td>
+
+                        <td>
+                            <form asp-action="DeleteService" method="post">
+                                <input type="hidden" value="@r.IdService" name="IdService" />
+                                <button>Удалить</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class ="add-button">
+        <a asp-action="AddService">
+            <button style="width: 200px;">Добавить услугу</button>
+        </a>
+
+    </div>
+   
+
+
+    <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿@model DentistryWeb.Models.Patient
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/auth.css">
+    <title>Авторизация</title>
+</head>
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+               
+
+                    <form asp-controller="Home" asp-action="Auth" method="post">
+                        <h2>Авторизация</h2>
+
+                        <div class="inputbox">
+                            <ion-icon name="mail"></ion-icon>
+                            <input asp-for="EmailPatient" type="email" required>
+                            <label asp-for="EmailPatient">Почта</label>
+                        </div>
+
+                        <div class="inputbox">
+                            <ion-icon name="lock"></ion-icon>
+                            <input asp-for="PasswordPatient" type="password" required>
+                            <label asp-for="PasswordPatient">Пароль</label>
+                        </div>
+
+                        <button type="submit">Войти</button>
+
+                        <div class="register">
+                            <p>Нет аккаунта? <a href="@Url.Action("Reg")">Регистрация</a></p>
+                            @if (ViewBag.ErrorMessage != null)
+                            {
+                                <div class="error-message">
+                                    @ViewBag.ErrorMessage
+                                </div>
+                            }
+                        </div>
+                    </form>
+
+            </div>
+        </div>
+    </section>
+    <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+</body>
+</html>

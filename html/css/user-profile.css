@@ -1,0 +1,96 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Century gothic', sans-serif;
+  
+  
+}
+header{
+  margin-top: 10px;
+  height: auto;
+}
+
+header ul li {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0 80px;
+}
+
+ul li a {
+  font-size: 0.8em;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  margin: 0 8px;
+  
+  
+}
+
+li ion-icon {
+  font-size: 1.1em;
+}
+
+nav {
+  margin-top: 10px;
+  height: 100px;
+  background-color: #0172BC;
+  display: flex;
+  align-items: center; 
+}
+
+.logo-container {
+  margin-left: 15px; 
+}
+
+nav ul li {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  
+  line-height: 100px;
+  font-size: 1.2em;
+  color: white;
+  font-weight: bold;
+}
+
+.exit{
+  margin-left: 850px; 
+  margin-right: 10px; 
+}
+.exit a{
+  line-height: 100px;
+  font-size: 1.2em;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  
+}
+
+.service{
+margin-top: 40px;
+margin-left: 200px;
+margin-right: 200px;
+/* display: grid;
+grid-template-columns: 1.5fr 1.5fr 1.5fr; */
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-column-gap: 10px;
+grid-row-gap: 1em;
+}
+
+button{
+  width: 300px;
+  height: 100px;
+  border-radius: 25px;
+  color: white;
+  background:  #0172BC;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: 600;
+}

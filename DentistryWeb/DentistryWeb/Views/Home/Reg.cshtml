@@ -1,0 +1,92 @@
+﻿@model DentistryWeb.Models.Patient
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/reg.css">
+    <title>Регистрация</title>
+</head>
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+
+
+                <form asp-controller="Home" asp-action="Reg" method="post">
+                    <h2>Регистрация</h2>
+
+                    <div class="inputbox">
+                        <ion-icon name="mail"></ion-icon>
+                        <input asp-for="EmailPatient" type="email" required>
+                        <label asp-for="EmailPatient">Почта</label>
+                    </div>
+
+                    <div class="inputbox">
+                        <ion-icon name="lock"></ion-icon>
+                        <input asp-for="PasswordPatient" type="password" required>
+                        <label asp-for="PasswordPatient">Пароль</label>
+                    </div>
+
+                    <div class="inputbox">
+                        <ion-icon name="lock"></ion-icon>
+                        <input asp-for="SurnamePatient" type="text" required>
+                        <label asp-for="SurnamePatient">Фамилия</label>
+                    </div>
+
+                    <div class="inputbox">
+                        <ion-icon name="lock"></ion-icon>
+                        <input asp-for="FirstNamePatient" type="text" required>
+                        <label asp-for="FirstNamePatient">Имя</label>
+                    </div>
+
+                    <div class="inputbox">
+                        <ion-icon name="lock"></ion-icon>
+                        <input asp-for="MiddlePatient" type="text" required>
+                        <label asp-for="MiddlePatient">Отчество</label>
+                    </div>
+
+                    
+
+                    <div class="inputbox">
+                        <ion-icon name="lock"></ion-icon>
+                        <input asp-for="Age" required>
+                        <label asp-for="Age">Возраст</label>
+                    </div>
+
+
+                   
+
+                        <select name="Sex">
+                            <option value="Sex">Мужчина</option>
+                            <option value="Sex">Женщина</option>
+                            <option value="Sex">Другое</option>
+                        </select>
+
+
+
+
+                    <input type="hidden" name="RoleId" value="1" />
+                    <button type="submit">Зарегистрироваться</button>
+
+                    <div class="register">
+                        <p>Передумали? <a href="@Url.Action("Auth")">Авторизация</a></p>
+                        @if (ViewBag.ErrorMessage != null)
+                        {
+                            <div class="error-message">
+                                @ViewBag.ErrorMessage
+                            </div>
+                        }
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+    <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+</body>
+</html>
